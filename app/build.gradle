@@ -55,7 +55,7 @@ dependencies {
     compile project.DEPENDENCY_SUPPORT_V4
     compile project.DEPENDENCY_CONSTRAINT_LAYOUT
     compile project.DEPENDENCY_GSON
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile project.DEPENDENCY_KOTLIN
 
 }
 repositories {
