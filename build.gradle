@@ -24,14 +24,15 @@ task clean(type: Delete) {
 }
 
 ext {
-
+    // SDK and Tools
     VERSION_MIN_SDK = 15
     VERSION_TARGET_SDK = 26
     VERSION_COMPILE_SDK = 26
     VERSION_BUILD_TOOLS = "26.1.2"
+
+
     VERSION_ANDROID_LIBRARY = "26.1.0"
     VERSION_CONSTRAINT_LAYOUT = "1.0.2"
-
     VERSION_GSON = "2.8.2"
     VERSION_OKHTTP = "3.9.1"
     VERSION_RETROFIT = "2.3.0"
@@ -45,34 +46,41 @@ ext {
     VERSION_GUAVA = "18.0"
     VERSION_RX_ANDROID = "2.0.2"
     VERSION_RX_JAVA = "2.0.2"
+    VERSION_JAVAX_INJECT = "1"
 
     VERSION_KOTLIN = "1.2.21"
+
+    VERSION_JUNIT = "4.12"
+    VERSION_ESPRESSO = "2.2.2"
+    VERSION_MOCKITO = "2.7.1"
 
     DEPENDENCY_RX_ANDROID = "io.reactivex.rxjava2:rxandroid:${VERSION_RX_ANDROID}"
     DEPENDENCY_RX_JAVA = "io.reactivex.rxjava2:rxjava:${VERSION_RX_JAVA}"
 
     DEPENDENCY_GUAVA = "com.google.guava:guava:${VERSION_GUAVA}"
+
     DEPENDENCY_DAGGER_COMPILER = "com.google.dagger:dagger-compiler:${VERSION_DAGGER}"
     DEPENDENCY_GDAGGER = "com.google.dagger:dagger:${VERSION_DAGGER}"
     DEPENDENCY_JAVAX_ANNOTATION = "javax.annotation:jsr250-api:${VERSION_JAVAX_ANNOTATION}"
+    DEPENDENCY_JAVAX_INJECT = "javax.inject:javax.inject:${VERSION_JAVAX_INJECT}"
 
     DEPENDENCY_SUPPORT_V4 = "com.android.support:support-v4:${VERSION_ANDROID_LIBRARY}"
     DEPENDENCY_RECYCLER_VIEW_V7 = "com.android.support:recyclerview-v7:${VERSION_ANDROID_LIBRARY}"
     DEPENDENCY_ANDROID_DESIGN = "com.android.support:design:${VERSION_ANDROID_LIBRARY}"
     DEPENDENCY_APPCOMPAT_V7 = "com.android.support:appcompat-v7:${VERSION_ANDROID_LIBRARY}"
     DEPENDENCY_CONSTRAINT_LAYOUT = "com.android.support.constraint:constraint-layout:${VERSION_CONSTRAINT_LAYOUT}"
+    DEPENDENCY_ANNOTATIONS = "com.android.support:support-annotations:${VERSION_ANNOTATIONS}"
+
 
     DEPENDENCY_BUTTERKNIFE = "com.jakewharton:butterknife:${VERSION_BUTTERKNIFE}"
 
     DEPENDENCY_OKHTTP = "com.squareup.okhttp3:logging-interceptor:${VERSION_OKHTTP}"
     DEPENDENCY_RETROFIT = "com.squareup.retrofit2:retrofit:${VERSION_RETROFIT}"
     DEPENDENCY_RETROFIT_CONVERTER = "com.squareup.retrofit2:converter-gson:${VERSION_RETROFIT}"
-
     DEPENDENCY_RETROFIT_ADAPTER = "com.squareup.retrofit2:adapter-rxjava2:${VERSION_RETROFIT}"
     DEPENDENCY_GSON = "com.google.code.gson:gson:${VERSION_GSON}"
 
     DEPENDENCY_PICASSO = "com.squareup.picasso:picasso:${VERSION_PICASSO}"
-    DEPENDENCY_ANNOTATIONS = "com.android.support:support-annotations:${VERSION_ANNOTATIONS}"
 
     DEPENDENCY_KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${VERSION_KOTLIN}"
 
