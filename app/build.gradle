@@ -48,6 +48,10 @@ dependencies {
     compile project.DEPENDENCY_RETROFIT_ADAPTER
     compile project.DEPENDENCY_OKHTTP
 
+    // Stetho
+    compile project.DEPENDENCY_STETHO
+    compile project.DEPENDENCY_STETHO_OKHTTP
+
     // Parser
     compile project.DEPENDENCY_GSON
 

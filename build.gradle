@@ -36,6 +36,7 @@ ext {
     VERSION_GSON = "2.8.2"
     VERSION_OKHTTP = "3.9.1"
     VERSION_RETROFIT = "2.3.0"
+    VERSION_STETHO = "1.5.0"
     VERSION_PICASSO = "2.5.2"
 
     VERSION_ANNOTATIONS = "27.0.2"
@@ -83,5 +84,9 @@ ext {
     DEPENDENCY_PICASSO = "com.squareup.picasso:picasso:${VERSION_PICASSO}"
 
     DEPENDENCY_KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${VERSION_KOTLIN}"
+
+    DEPENDENCY_STETHO = "com.facebook.stetho:stetho:${VERSION_STETHO}"
+    DEPENDENCY_STETHO_OKHTTP = "com.facebook.stetho:stetho-okhttp3:${VERSION_STETHO}"
+
 
 }
