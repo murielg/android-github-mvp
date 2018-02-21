@@ -14,13 +14,13 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField("String", "BASE_URL", "http://")
+            buildConfigField("String", "BASE_URL", "\"http://\"")
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "http://")
+            buildConfigField("String", "BASE_URL", "\"http://\"")
         }
     }
 }
