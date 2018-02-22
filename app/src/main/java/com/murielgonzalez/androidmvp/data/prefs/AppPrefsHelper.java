@@ -14,9 +14,13 @@ import javax.inject.Inject;
 
 public class AppPrefsHelper implements PrefsHelper {
 
+    private static final String PREF_KEY_CURRENT_USER_NAME = "PREF_KEY_CURRENT_USER_NAME";
+
     private final SharedPreferences mSharedPreferences;
+
     @Inject
     public AppPrefsHelper(@ApplicationContext Context context, @PreferenceInfo String prefFileName) {
         mSharedPreferences = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE);
     }
+
 }

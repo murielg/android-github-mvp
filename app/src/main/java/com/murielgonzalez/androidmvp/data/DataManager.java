@@ -1,12 +1,16 @@
 package com.murielgonzalez.androidmvp.data;
 
+import com.murielgonzalez.androidmvp.data.db.DbHelper;
+import com.murielgonzalez.androidmvp.data.network.ApiHelper;
+import com.murielgonzalez.androidmvp.data.prefs.PrefsHelper;
+
 /**
  * Created by muriel_gonzalez on 2/19/18.
  */
-//DataManager: It is an interface that is implemented by the AppDataManager.
+// DataManager interface implemented by AppDataManager
 // It contains methods, exposed for all the data handling operations.
-// Ideally, it delegates the services provided by all the Helper classes.
-// For this DataManager interface extends DbHelper, PreferenceHelper and ApiHelper interfaces.
-public interface DataManager {
+// It delegates the services provided by all the Helper classes
+
+public interface DataManager extends DbHelper, PrefsHelper, ApiHelper {
 
 }
