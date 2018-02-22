@@ -9,6 +9,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.murielgonzalez.androidmvp.data.DataManager;
+import com.murielgonzalez.androidmvp.di.components.ApplicationComponent;
 
 import javax.inject.Inject;
 
@@ -17,9 +18,7 @@ public class App extends Application {
     @Inject
     DataManager mDataManager;
 
-    public static App get(Context context) {
-        return (App) context.getApplicationContext();
-    }
+    private ApplicationComponent mApplicationComponent;
 
 
     @Override
@@ -31,6 +30,11 @@ public class App extends Application {
 
     protected void initializeInjector() {
 
+
+    }
+
+    public ApplicationComponent getComponent() {
+        return mApplicationComponent;
     }
 
 }
