@@ -5,4 +5,9 @@ package com.murielgonzalez.androidmvp.data.prefs;
  */
 
 public interface PrefsHelper {
+
+  // String getCurrentUserName();
+
+  // void setCurrentUserName(String userName);
+
 }

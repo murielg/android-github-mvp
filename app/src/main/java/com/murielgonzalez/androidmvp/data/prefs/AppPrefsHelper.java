@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.murielgonzalez.androidmvp.di.ApplicationContext;
+import com.murielgonzalez.androidmvp.di.PreferenceInfo;
 
 import javax.inject.Inject;
 
