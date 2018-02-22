@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.data.DataManager;
-import com.murielgonzalez.androidmvp.data.db.DbHelper;
 import com.murielgonzalez.androidmvp.di.ApplicationContext;
 import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
 
@@ -23,12 +22,11 @@ public interface ApplicationComponent {
     void inject(App app);
 
     @ApplicationContext
-    Context getContext();
+    Context context();
 
-    Application getApplication();
+    Application application();
 
     DataManager getDataManager();
 
-    DbHelper getDbHelper();
 
 }

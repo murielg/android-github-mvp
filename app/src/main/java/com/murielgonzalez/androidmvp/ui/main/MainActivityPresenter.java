@@ -8,6 +8,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   private static final String TAG = MainActivityPresenter.class.getSimpleName();
 
+
   @Override
   public void start() {
 

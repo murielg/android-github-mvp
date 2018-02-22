@@ -5,6 +5,10 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.murielgonzalez.androidmvp.di.ApplicationContext;
+import com.murielgonzalez.androidmvp.di.DatabaseInfo;
+
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
@@ -12,12 +16,14 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class DbOpenHelper extends SQLiteOpenHelper {
+public class DbOpenHelper {
 
-    public DbOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
-        super(context, name, factory, version, errorHandler);
+    @Inject
+    public DbOpenHelper(@ApplicationContext Context context) {
+
     }
 
+/*
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -27,6 +33,7 @@ public class DbOpenHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+*/
 
 
 }

@@ -9,7 +9,10 @@ import com.murielgonzalez.androidmvp.data.db.AppDbHelper;
 import com.murielgonzalez.androidmvp.data.db.DbHelper;
 import com.murielgonzalez.androidmvp.data.network.ApiHelper;
 import com.murielgonzalez.androidmvp.data.network.AppApiHelper;
+import com.murielgonzalez.androidmvp.data.prefs.PrefsHelper;
 import com.murielgonzalez.androidmvp.di.ApplicationContext;
+import com.murielgonzalez.androidmvp.di.DatabaseInfo;
+import com.murielgonzalez.androidmvp.utils.AppConstants;
 
 import javax.inject.Singleton;
 
@@ -57,6 +60,10 @@ public class ApplicationModule {
     ApiHelper provideApiHelper(AppApiHelper appApiHelper) {
         return appApiHelper;
     }
+
+    @Provides
+    @Singleton
+    PrefsHelper providePrefsHelper(PrefsHelper prefsHelper){ return prefsHelper;}
 
 
 }

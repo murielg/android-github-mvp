@@ -31,10 +31,7 @@ public class AppDataManager implements DataManager {
     private final ApiHelper mApiHelper;
 
     @Inject
-    public AppDataManager(@ApplicationContext Context context,
-                          DbHelper dbHelper,
-                          PrefsHelper prefsHelper,
-                          ApiHelper apiHelper) {
+    public AppDataManager(@ApplicationContext Context context, DbHelper dbHelper, PrefsHelper prefsHelper, ApiHelper apiHelper) {
         mContext = context;
         mDbHelper = dbHelper;
         mPrefsHelper = prefsHelper;
