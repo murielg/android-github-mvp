@@ -59,14 +59,19 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    PrefsHelper providePrefsHelper(AppPrefsHelper prefsHelper){ return prefsHelper;}
+    PrefsHelper providePrefsHelper(AppPrefsHelper appPrefsHelper){ return appPrefsHelper;}
+
+//    @Provides
+//    @Singleton
+//    ApiHelper provideApiHelper(AppApiHelper appApiHelper){
+//        return appApiHelper;
+//    }
 
     @Provides
     @PreferenceInfo
     String providePreferenceName() {
         return AppConstants.PREF_NAME;
     }
-
 
 
 }

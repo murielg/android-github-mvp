@@ -5,4 +5,5 @@ package com.murielgonzalez.androidmvp.data.db;
  */
 
 public interface DbHelper {
+
 }

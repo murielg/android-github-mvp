@@ -13,8 +13,10 @@ import dagger.Provides;
 /**
  * Created by muriel_gonzalez on 2/21/18.
  */
+
 @Module
 public class ActivityModule {
+
     private AppCompatActivity mActivity;
 
     public ActivityModule(AppCompatActivity activity) {
@@ -27,6 +29,10 @@ public class ActivityModule {
         return mActivity;
     }
 
+    @Provides
+    AppCompatActivity provideActivity() {
+        return mActivity;
+    }
 
 
 }

@@ -18,11 +18,9 @@ import io.reactivex.Observable;
 public class AppApiHelper implements ApiHelper {
 
     private ApiHelper mApiHelper;
-    // TODO: add ApiHeader
-//    @Inject
-//    public AppApiHelper(ApiHelper apiHelper){
-//        mApiHelper = apiHelper;
-//    }
+
+    @Inject
+    public AppApiHelper(ApiHelper apiHelper){ mApiHelper = apiHelper; }
 
     @Override
     public Observable<User> getUser(@NonNull String username) {
