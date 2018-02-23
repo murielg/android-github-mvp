@@ -13,7 +13,7 @@ import dagger.Provides;
 /**
  * Created by muriel_gonzalez on 2/21/18.
  */
-
+// Activity Module: This module exposes the activity to dependents in the graph.
 @Module
 public class ActivityModule {
 
