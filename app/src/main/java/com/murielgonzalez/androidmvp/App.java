@@ -6,11 +6,11 @@ package com.murielgonzalez.androidmvp;
 
 
 import android.app.Application;
-import android.content.Context;
+
 
 import com.murielgonzalez.androidmvp.data.DataManager;
 import com.murielgonzalez.androidmvp.di.components.ApplicationComponent;
-import com.murielgonzalez.androidmvp.di.components.DaggerApplicationComponent;
+//import com.murielgonzalez.androidmvp.di.components.DaggerApplicationComponent;
 import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
 
 import javax.inject.Inject;
@@ -31,8 +31,10 @@ public class App extends Application {
 
 
     protected void initializeInjector() {
-        mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this)).build();
+//        mApplicationComponent = DaggerApplicationComponent.builder()
+//                .applicationModule(new ApplicationModule(this)).build();
+//
+//        mApplicationComponent.inject(this);
 
 
     }

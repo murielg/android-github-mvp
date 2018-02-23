@@ -23,6 +23,7 @@ import io.reactivex.Observable;
 
 @Singleton
 public class AppDataManager implements DataManager {
+
     private static final String TAG = AppDataManager.class.getSimpleName();
 
     private final Context mContext;
@@ -41,5 +42,10 @@ public class AppDataManager implements DataManager {
     @Override
     public Observable<User> getUser(@NonNull String username) {
         return mApiHelper.getUser(username);
+    }
+
+    @Override
+    public void setCurrentUserName(String userName) {
+        mPrefsHelper.setCurrentUserName(userName);
     }
 }

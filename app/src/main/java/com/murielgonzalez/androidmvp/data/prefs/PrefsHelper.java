@@ -8,6 +8,6 @@ public interface PrefsHelper {
 
   // String getCurrentUserName();
 
-  // void setCurrentUserName(String userName);
+   void setCurrentUserName(String userName);
 
 }

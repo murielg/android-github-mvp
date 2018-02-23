@@ -6,6 +6,6 @@ package com.murielgonzalez.androidmvp.utils;
 
 public final class AppConstants {
 
-  public static final String PREFS_NAME = "shared_prefs";
+  public static final String PREF_NAME = "shared_prefs";
 
 }

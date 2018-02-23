@@ -9,9 +9,11 @@ import com.murielgonzalez.androidmvp.data.db.AppDbHelper;
 import com.murielgonzalez.androidmvp.data.db.DbHelper;
 import com.murielgonzalez.androidmvp.data.network.ApiHelper;
 import com.murielgonzalez.androidmvp.data.network.AppApiHelper;
+import com.murielgonzalez.androidmvp.data.prefs.AppPrefsHelper;
 import com.murielgonzalez.androidmvp.data.prefs.PrefsHelper;
 import com.murielgonzalez.androidmvp.di.ApplicationContext;
 import com.murielgonzalez.androidmvp.di.DatabaseInfo;
+import com.murielgonzalez.androidmvp.di.PreferenceInfo;
 import com.murielgonzalez.androidmvp.utils.AppConstants;
 
 import javax.inject.Singleton;
@@ -57,13 +59,14 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    ApiHelper provideApiHelper(AppApiHelper appApiHelper) {
-        return appApiHelper;
-    }
+    PrefsHelper providePrefsHelper(AppPrefsHelper prefsHelper){ return prefsHelper;}
 
     @Provides
-    @Singleton
-    PrefsHelper providePrefsHelper(PrefsHelper prefsHelper){ return prefsHelper;}
+    @PreferenceInfo
+    String providePreferenceName() {
+        return AppConstants.PREF_NAME;
+    }
+
 
 
 }
