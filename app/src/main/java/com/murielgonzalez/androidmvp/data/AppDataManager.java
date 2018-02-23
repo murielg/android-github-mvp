@@ -29,22 +29,24 @@ public class AppDataManager implements DataManager {
     private final Context mContext;
     private final DbHelper mDbHelper;
     private final PrefsHelper mPrefsHelper;
-//    private final ApiHelper mApiHelper;
+    private final ApiHelper mApiHelper;
 
     @Inject
     public AppDataManager(@ApplicationContext Context context,
                           DbHelper dbHelper,
-                          PrefsHelper prefsHelper) {
+                          PrefsHelper prefsHelper,
+                          ApiHelper apiHelper
+                          ) {
         mContext = context;
         mDbHelper = dbHelper;
         mPrefsHelper = prefsHelper;
-//        mApiHelper = apiHelper;
+        mApiHelper = apiHelper;
     }
 
-//    @Override
-//    public Observable<User> getUser(@NonNull String username) {
-//        return mApiHelper.getUser(username);
-//    }
+    @Override
+    public Observable<User> getUser(@NonNull String username) {
+        return mApiHelper.getUser(username);
+    }
 
     @Override
     public void setCurrentUserName(String userName) {

@@ -61,11 +61,11 @@ public class ApplicationModule {
     @Singleton
     PrefsHelper providePrefsHelper(AppPrefsHelper appPrefsHelper){ return appPrefsHelper;}
 
-//    @Provides
-//    @Singleton
-//    ApiHelper provideApiHelper(AppApiHelper appApiHelper){
-//        return appApiHelper;
-//    }
+    @Provides
+    @Singleton
+    ApiHelper provideApiHelper(AppApiHelper appApiHelper) {
+        return appApiHelper;
+    }
 
     @Provides
     @PreferenceInfo

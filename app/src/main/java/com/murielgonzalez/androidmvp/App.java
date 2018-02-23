@@ -17,6 +17,9 @@ import javax.inject.Inject;
 
 public class App extends Application {
 
+    @Inject
+    DataManager mDataManager;
+
     private ApplicationComponent mApplicationComponent;
 
     @Override
@@ -28,8 +31,9 @@ public class App extends Application {
 
     protected void initializeInjector() {
         mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule((App) getApplicationContext()))
-        .build();
+                .applicationModule(new ApplicationModule(this)).build();
+
+        mApplicationComponent.inject(this);
 
     }
 

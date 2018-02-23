@@ -1,8 +1,10 @@
 package com.murielgonzalez.androidmvp.data.network;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.murielgonzalez.androidmvp.data.network.model.User;
+import com.murielgonzalez.androidmvp.di.ApplicationContext;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -17,15 +19,16 @@ import io.reactivex.Observable;
 @Singleton
 public class AppApiHelper implements ApiHelper {
 
-    private ApiHelper mApiHelper;
-
-    @Inject
-    public AppApiHelper(ApiHelper apiHelper){ mApiHelper = apiHelper; }
-
     @Override
     public Observable<User> getUser(@NonNull String username) {
         return null;
     }
+
+    @Inject
+    public AppApiHelper(@ApplicationContext Context context) {
+
+    }
+
 
 
 }

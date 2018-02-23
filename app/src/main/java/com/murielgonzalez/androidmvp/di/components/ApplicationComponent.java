@@ -19,6 +19,8 @@ import dagger.Component;
 @Component(modules = ApplicationModule.class)
 public interface ApplicationComponent {
 
+    void inject(App app);
+
     @ApplicationContext
     Context context();
 
