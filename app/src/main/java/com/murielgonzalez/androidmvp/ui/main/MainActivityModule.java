@@ -1,12 +1,7 @@
 package com.murielgonzalez.androidmvp.ui.main;
 
-import com.murielgonzalez.androidmvp.di.ActivityScoped;
-import com.murielgonzalez.androidmvp.di.FragmentScoped;
-
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import dagger.android.ContributesAndroidInjector;
 
 /**
  * Created by muriel_gonzalez on 2/24/18.

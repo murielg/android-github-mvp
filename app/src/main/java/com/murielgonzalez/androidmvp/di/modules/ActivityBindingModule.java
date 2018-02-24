@@ -1,17 +1,9 @@
 package com.murielgonzalez.androidmvp.di.modules;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-
-import com.murielgonzalez.androidmvp.di.ActivityContext;
-import com.murielgonzalez.androidmvp.di.ActivityScoped;
-import com.murielgonzalez.androidmvp.di.PerActivity;
 import com.murielgonzalez.androidmvp.ui.main.MainActivity;
 import com.murielgonzalez.androidmvp.ui.main.MainActivityModule;
-import com.murielgonzalez.androidmvp.ui.main.MainActivityPresenter;
 
 import dagger.Module;
-import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
 
 /**
@@ -23,7 +15,6 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class ActivityBindingModule {
 
-    @ActivityScoped
     @ContributesAndroidInjector(modules = MainActivityModule.class)
     abstract MainActivity mainActivity();
 

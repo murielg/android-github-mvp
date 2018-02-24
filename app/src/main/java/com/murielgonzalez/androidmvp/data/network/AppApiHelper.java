@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.murielgonzalez.androidmvp.data.network.model.User;
-import com.murielgonzalez.androidmvp.di.ApplicationContext;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -25,7 +24,7 @@ public class AppApiHelper implements ApiHelper {
     }
 
     @Inject
-    public AppApiHelper(@ApplicationContext Context context) {
+    public AppApiHelper(Context context) {
 
     }
 

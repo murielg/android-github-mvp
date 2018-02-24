@@ -4,16 +4,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.murielgonzalez.androidmvp.App;
-import com.murielgonzalez.androidmvp.data.AppDataManager;
-import com.murielgonzalez.androidmvp.data.DataManager;
-import com.murielgonzalez.androidmvp.data.db.AppDbHelper;
-import com.murielgonzalez.androidmvp.data.db.DbHelper;
-import com.murielgonzalez.androidmvp.data.network.ApiHelper;
-import com.murielgonzalez.androidmvp.data.network.AppApiHelper;
-import com.murielgonzalez.androidmvp.data.prefs.AppPrefsHelper;
-import com.murielgonzalez.androidmvp.data.prefs.PrefsHelper;
-import com.murielgonzalez.androidmvp.di.PreferenceInfo;
-import com.murielgonzalez.androidmvp.utils.AppConstants;
 
 import javax.inject.Singleton;
 
@@ -23,19 +13,20 @@ import dagger.Provides;
 /**
  * Created by muriel_gonzalez on 2/21/18.
  */
-//Application Module will provide dependencies for app-wide dependencies
+
 @Module
 public class ApplicationModule {
 
-    private final Context mContext;
+    Application mApplication;
 
-    public ApplicationModule(Context context) {
-        mContext = context;
+    public ApplicationModule(Application application) {
+        this.mApplication = application;
     }
 
     @Provides
-    Context provideContext(App app){
-        return app.getApplicationContext();
+    @Singleton
+    Application provideApplication() {
+        return mApplication;
     }
 
 //    @Provides

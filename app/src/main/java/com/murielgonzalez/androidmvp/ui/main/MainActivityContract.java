@@ -9,17 +9,19 @@ import com.murielgonzalez.androidmvp.ui.base.BaseView;
 
 public interface MainActivityContract {
 
+  // Holds methods implemented by MainActivity
   interface View extends BaseView<Presenter> {
 
     void setLoadingIndicator(boolean active);
 
-    // void showList(List<Item> items);
+    // void showUsers(List<User> users);
 
   }
 
-
-  interface Presenter extends BasePresenter<View> {
+// Holds methods implemented in MainActivityPresenter
+  interface Presenter extends BasePresenter {
 
     void dropView();
+
   }
 }
