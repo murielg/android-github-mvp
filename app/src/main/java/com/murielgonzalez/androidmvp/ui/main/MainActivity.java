@@ -5,9 +5,20 @@ import android.os.Bundle;
 
 import com.murielgonzalez.androidmvp.R;
 
+import javax.inject.Inject;
+
+import dagger.Lazy;
+
 public class MainActivity extends AppCompatActivity {
 
   private static final String TAG =  MainActivity.class.getSimpleName();
+
+  @Inject
+  MainActivityPresenter mPresenter;
+
+  @Inject
+  Lazy<MainActivityFragment> mFragmentProvider;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     MainActivityFragment mainActivityFragment = (MainActivityFragment) getSupportFragmentManager()
         .findFragmentById(R.id.fragment_container);
-
-
-
-
 
 
   }

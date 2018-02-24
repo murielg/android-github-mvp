@@ -1,18 +1,21 @@
 package com.murielgonzalez.androidmvp.data.network;
 
-import com.murielgonzalez.androidmvp.data.network.model.User;
-
-
-import io.reactivex.Observable;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-
-
 /**
- * Created by muriel_gonzalez on 2/23/18.
+ * Created by muriel_gonzalez on 2/24/18.
  */
 
-public interface ApiService {
-    @GET("users/{user}")
-    Observable<User> getUser(@Path("user") String username);
+public class ApiService {
+
+  private ApiInterface mApiInterface;
+
+  public ApiService() {}
+
+  public ApiService(ApiInterface apiInterface) {
+    this.mApiInterface = apiInterface;
+  }
+
+  public ApiInterface getApiInterface() {
+    return mApiInterface;
+  }
+
 }

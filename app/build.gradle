@@ -39,28 +39,33 @@ dependencies {
     implementation project.DEPENDENCY_KOTLIN
 
     // ReactiveX
-    implementation project.DEPENDENCY_RX_ANDROID
     implementation project.DEPENDENCY_RX_JAVA
+    implementation project.DEPENDENCY_RX_ANDROID
 
     //Retrofit and Networking
     implementation project.DEPENDENCY_RETROFIT
     implementation project.DEPENDENCY_RETROFIT_CONVERTER
     implementation project.DEPENDENCY_RETROFIT_ADAPTER
     implementation project.DEPENDENCY_OKHTTP
+    implementation project.DEPENDENCY_GSON
 
     // Stetho
     implementation project.DEPENDENCY_STETHO
     implementation project.DEPENDENCY_STETHO_OKHTTP
 
-    // Parser
-    implementation project.DEPENDENCY_GSON
-
-
     // Dependency Injection
-    implementation project.DEPENDENCY_GDAGGER
-    implementation project.DEPENDENCY_JAVAX_ANNOTATION
+    // Dagger Core
     annotationProcessor project.DEPENDENCY_DAGGER_COMPILER
-    implementation project.DEPENDENCY_JAVAX_INJECT
+    implementation project.DEPENDENCY_GDAGGER
+
+    // Dagger Android
+
+    implementation project.DEPENDENCY_DAGGER_ANDROID
+    implementation project.DEPENDENCY_DAGGER_ANDROID_SUPPORT
+    annotationProcessor project.DEPENDENCY_DAGGER_ANDROID_ANNOTATION
+
+    //implementation project.DEPENDENCY_JAVAX_INJECT
+    //    implementation project.DEPENDENCY_JAVAX_ANNOTATION
 
     // Testing
     testImplementation 'junit:junit:4.12'
@@ -68,9 +73,7 @@ dependencies {
     //UI Tools
     implementation project.DEPENDENCY_BUTTERKNIFE
     implementation project.DEPENDENCY_PICASSO
-
-
-    implementation project.DEPENDENCY_GUAVA
+    //implementation project.DEPENDENCY_GUAVA
 }
 repositories {
     mavenCentral()
