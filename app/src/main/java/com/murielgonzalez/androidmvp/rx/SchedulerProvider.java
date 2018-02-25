@@ -1,16 +1,32 @@
 package com.murielgonzalez.androidmvp.rx;
 
+import android.support.annotation.NonNull;
+
+import javax.inject.Inject;
+
 import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by muriel_gonzalez on 2/20/18.
  */
 
-public interface SchedulerProvider {
+public class SchedulerProvider implements BaseSchedulerProvider {
 
-    Scheduler ui();
+    // Prevent direct instantiation.
+    @Inject
+    public SchedulerProvider() {
+    }
 
-    Scheduler computation();
+    @Override
+    @NonNull
+    public Scheduler computation() {
+        return Schedulers.computation();
+    }
 
-    Scheduler io();
+    @Override
+    @NonNull
+    public Scheduler io() {
+        return Schedulers.io();
+    }
 }

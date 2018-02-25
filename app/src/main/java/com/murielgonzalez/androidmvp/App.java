@@ -10,7 +10,6 @@ import com.murielgonzalez.androidmvp.di.components.ApplicationComponent;
 import com.murielgonzalez.androidmvp.di.components.DaggerApplicationComponent;
 import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
 import com.murielgonzalez.androidmvp.di.modules.DataModule;
-import com.murielgonzalez.androidmvp.utils.AppConstants;
 
 public class App extends Application {
 

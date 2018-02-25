@@ -1,24 +1,17 @@
 package com.murielgonzalez.androidmvp.rx;
 
+import android.support.annotation.NonNull;
+
 import io.reactivex.Scheduler;
 
 /**
  * Created by muriel_gonzalez on 2/20/18.
  */
 
-public class AppSchedulerProvider implements SchedulerProvider {
-    @Override
-    public Scheduler ui() {
-        return null;
-    }
+public interface BaseSchedulerProvider  {
+    @NonNull
+    Scheduler computation();
 
-    @Override
-    public Scheduler computation() {
-        return null;
-    }
-
-    @Override
-    public Scheduler io() {
-        return null;
-    }
+    @NonNull
+    Scheduler io();
 }
