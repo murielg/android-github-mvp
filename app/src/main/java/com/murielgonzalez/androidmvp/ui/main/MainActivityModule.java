@@ -6,7 +6,7 @@ import dagger.Provides;
 /**
  * Created by muriel_gonzalez on 2/24/18.
  */
-@Module
+//@Module
 public class MainActivityModule {
 
   private final MainActivityContract.View mView;
@@ -15,7 +15,7 @@ public class MainActivityModule {
     mView = view;
   }
 
-  @Provides
+//  @Provides
   MainActivityContract.View provideMainActivityContractView() {
     return mView;
   }
