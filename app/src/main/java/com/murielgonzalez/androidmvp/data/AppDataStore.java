@@ -1,8 +1,7 @@
 package com.murielgonzalez.androidmvp.data;
 
-import com.murielgonzalez.androidmvp.data.network.model.User;
+import com.murielgonzalez.androidmvp.data.local.models.User;
 
-import java.util.List;
 import io.reactivex.Observable;
 
 /**
@@ -10,5 +9,5 @@ import io.reactivex.Observable;
  */
 
 public interface AppDataStore {
-  Observable<List<User>> getUsers();
+  Observable<User> getUser();
 }

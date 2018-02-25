@@ -48,6 +48,7 @@ dependencies {
     implementation project.DEPENDENCY_RETROFIT_ADAPTER
     implementation project.DEPENDENCY_OKHTTP
     implementation project.DEPENDENCY_GSON
+    implementation project.DEPENDENCY_OKIO
 
     // Stetho
     implementation project.DEPENDENCY_STETHO
@@ -64,16 +65,15 @@ dependencies {
     implementation project.DEPENDENCY_DAGGER_ANDROID_SUPPORT
     annotationProcessor project.DEPENDENCY_DAGGER_ANDROID_ANNOTATION
 
-    //implementation project.DEPENDENCY_JAVAX_INJECT
-    //    implementation project.DEPENDENCY_JAVAX_ANNOTATION
-
     // Testing
     testImplementation 'junit:junit:4.12'
 
     //UI Tools
     implementation project.DEPENDENCY_BUTTERKNIFE
     implementation project.DEPENDENCY_PICASSO
-    //implementation project.DEPENDENCY_GUAVA
+
+    // Utils
+    implementation project.DEPENDENCY_GUAVA
 }
 repositories {
     mavenCentral()

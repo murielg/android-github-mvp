@@ -34,6 +34,7 @@ ext {
     VERSION_GSON = "2.8.2"
     VERSION_OKHTTP = "3.9.1"
     VERSION_RETROFIT = "2.3.0"
+    VERSION_OKIO = "1.14.0"
     VERSION_STETHO = "1.5.0"
     VERSION_PICASSO = "2.5.2"
     VERSION_ANNOTATIONS = "27.0.2"
@@ -70,6 +71,7 @@ ext {
     DEPENDENCY_RETROFIT_ADAPTER = "com.squareup.retrofit2:adapter-rxjava2:${VERSION_RETROFIT}"
     DEPENDENCY_OKHTTP = "com.squareup.okhttp3:logging-interceptor:${VERSION_OKHTTP}"
     DEPENDENCY_GSON = "com.google.code.gson:gson:${VERSION_GSON}"
+    DEPENDENCY_OKIO = "com.squareup.okio:okio:${VERSION_OKIO}"
 
     // Stetho
     DEPENDENCY_STETHO = "com.facebook.stetho:stetho:${VERSION_STETHO}"
@@ -91,7 +93,7 @@ ext {
     DEPENDENCY_PICASSO = "com.squareup.picasso:picasso:${VERSION_PICASSO}"
 
     // Utils
-    // DEPENDENCY_GUAVA = "com.google.guava:guava:${VERSION_GUAVA}"
+    DEPENDENCY_GUAVA = "com.google.guava:guava:${VERSION_GUAVA}"
 
 
 

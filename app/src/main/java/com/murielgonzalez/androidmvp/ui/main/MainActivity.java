@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.murielgonzalez.androidmvp.R;
+import com.murielgonzalez.androidmvp.data.AppRepository;
 
 import javax.inject.Inject;
 
@@ -14,11 +15,7 @@ public class MainActivity extends AppCompatActivity {
   private static final String TAG =  MainActivity.class.getSimpleName();
 
   @Inject
-  MainActivityPresenter mPresenter;
-
-  @Inject
-  Lazy<MainActivityFragment> mFragmentProvider;
-
+  AppRepository mRepository;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

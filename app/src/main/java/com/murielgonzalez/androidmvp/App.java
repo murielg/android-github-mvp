@@ -9,13 +9,12 @@ import android.app.Application;
 import com.murielgonzalez.androidmvp.di.components.ApplicationComponent;
 import com.murielgonzalez.androidmvp.di.components.DaggerApplicationComponent;
 import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
+import com.murielgonzalez.androidmvp.di.modules.DataModule;
+import com.murielgonzalez.androidmvp.utils.AppConstants;
 
 public class App extends Application {
 
-    private ApplicationComponent mApplicationComponent;
-
-//    @Inject
-//    DataManager mDataManager;
+    private static ApplicationComponent mApplicationComponent;
 
     @Override
     public void onCreate() {
@@ -26,12 +25,12 @@ public class App extends Application {
 
     protected void initializeAppComponent() {
         mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this)).build();
-        mApplicationComponent.inject(this);
-
+                .applicationModule(new ApplicationModule(this))
+            .dataModule(new DataModule(BuildConfig.BASE_URL))
+            .build();
     }
 
-    public ApplicationComponent getComponent() {
+    public static ApplicationComponent getComponent() {
         return mApplicationComponent;
     }
 

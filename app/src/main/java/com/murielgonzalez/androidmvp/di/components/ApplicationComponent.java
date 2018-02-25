@@ -1,11 +1,11 @@
 package com.murielgonzalez.androidmvp.di.components;
 
-import com.murielgonzalez.androidmvp.App;
-import com.murielgonzalez.androidmvp.di.modules.ActivityBindingModule;
+import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataStore;
 import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
+import com.murielgonzalez.androidmvp.di.modules.DataModule;
+import com.murielgonzalez.androidmvp.ui.main.MainActivity;
 
 import javax.inject.Singleton;
-import dagger.BindsInstance;
 import dagger.Component;
 
 /**
@@ -16,26 +16,12 @@ import dagger.Component;
 @Singleton
 @Component(modules = {
     ApplicationModule.class,
-    ActivityBindingModule.class
+    DataModule.class
 })
 public interface ApplicationComponent {
 
-//    void inject(App app);
-//
-//    // Exposed to sub-graphs
-//    DataManager getDataManager();
-//
-//    @ApplicationContext
-//    Context context();
-//
-//    Application application();
-    @Component.Builder
-    interface Builder {
-        @BindsInstance
-        Builder application(App app);
-        ApplicationComponent build();
-    }
+    void inject(MainActivity activity);
 
-    void inject(App app);
+    void inject(AppRemoteDataStore appRemoteDataStore);
 
 }

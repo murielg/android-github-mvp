@@ -3,7 +3,6 @@ package com.murielgonzalez.androidmvp.data.prefs;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
@@ -17,7 +16,6 @@ public class AppPrefsHelper implements PrefsHelper {
 
     private final SharedPreferences mPrefs;
 
-    @Inject
     public AppPrefsHelper(Context context, String prefFileName) {
         mPrefs = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE);
     }

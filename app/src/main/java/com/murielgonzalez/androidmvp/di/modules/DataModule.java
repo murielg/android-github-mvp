@@ -12,6 +12,7 @@ import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataStore;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -23,8 +24,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by muriel_gonzalez on 2/24/18.
  */
 
+
+@Module
 public class DataModule {
-  String mBaseUrl;
+
+  private String mBaseUrl;
 
   public DataModule(String mBaseUrl) {
     this.mBaseUrl = mBaseUrl;
@@ -34,6 +38,14 @@ public class DataModule {
   @Singleton
   SharedPreferences providesSharedPreferences(Application application) {
     return PreferenceManager.getDefaultSharedPreferences(application);
+  }
+
+  @Provides
+  @Singleton
+  Cache provideHttpCache(Application application) {
+    int cacheSize = 10 * 1024 * 1024;
+    Cache cache = new Cache(application.getCacheDir(), cacheSize);
+    return cache;
   }
 
   @Provides

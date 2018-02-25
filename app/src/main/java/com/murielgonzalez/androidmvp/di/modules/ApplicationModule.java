@@ -29,33 +29,4 @@ public class ApplicationModule {
         return mApplication;
     }
 
-//    @Provides
-//    @Singleton
-//    DataManager provideDataManager(AppDataManager appDataManager) {
-//        return appDataManager;
-//    }
-//
-//    @Provides
-//    @Singleton
-//    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
-//        return appDbHelper;
-//    }
-//
-//    @Provides
-//    @Singleton
-//    PrefsHelper providePrefsHelper(AppPrefsHelper appPrefsHelper){ return appPrefsHelper;}
-//
-//    @Provides
-//    @Singleton
-//    ApiHelper provideApiHelper(AppApiHelper appApiHelper) {
-//        return appApiHelper;
-//    }
-//
-//    @Provides
-//    @PreferenceInfo
-//    String providePreferenceName() {
-//        return AppConstants.PREF_NAME;
-//    }
-
-
 }

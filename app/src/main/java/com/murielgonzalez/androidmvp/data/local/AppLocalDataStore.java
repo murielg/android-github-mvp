@@ -2,9 +2,8 @@ package com.murielgonzalez.androidmvp.data.local;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-
 import com.murielgonzalez.androidmvp.data.AppDataStore;
-import com.murielgonzalez.androidmvp.data.network.model.User;
+import com.murielgonzalez.androidmvp.data.local.models.User;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class AppLocalDataStore implements AppDataStore {
   }
 
   @Override
-  public Observable<List<User>> getUsers() {
+  public Observable<User> getUser() {
     return null;
   }
 }

@@ -1,8 +1,10 @@
 package com.murielgonzalez.androidmvp.data;
 
-import com.murielgonzalez.androidmvp.data.network.model.User;
+import com.murielgonzalez.androidmvp.data.local.AppLocalDataStore;
+import com.murielgonzalez.androidmvp.data.local.models.User;
+import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataStore;
 
-import java.util.List;
+import javax.inject.Inject;
 
 import io.reactivex.Observable;
 
@@ -12,11 +14,22 @@ import io.reactivex.Observable;
 
 public class AppRepository implements AppDataStore {
 
+  private AppLocalDataStore mAppLocalDataStore;
+
+  private AppRemoteDataStore mAppRemoteDataStore;
+
+  @Inject
+  public AppRepository(AppLocalDataStore localDataStore, AppRemoteDataStore remoteDataStore) {
+    this.mAppLocalDataStore = localDataStore;
+    this.mAppRemoteDataStore = remoteDataStore;
+  }
 
 
+  // TODO: Use Observable.concat to concat local and remote repositories.
+  // If there's data in local DB, use that, if not, request from remote data service
 
   @Override
-  public Observable<List<User>> getUsers() {
-    return null;
+  public Observable<User> getUser() {
+    return mAppRemoteDataStore.getUser();
   }
 }
