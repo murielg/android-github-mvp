@@ -21,7 +21,6 @@ public class App extends Application {
         this.initializeAppComponent();
     }
 
-
     protected void initializeAppComponent() {
         mApplicationComponent = DaggerApplicationComponent.builder()
             .applicationModule(new ApplicationModule(this))
