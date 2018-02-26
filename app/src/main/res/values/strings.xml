@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndroidMVP</string>
+    <string name="app_scheme">androidmvp</string>
+    <string name="app_host">www.murielgonzalez.com</string>
+
+    <!-- nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_users">Users</string>
+
+    <!-- sections -->
+
 </resources>
