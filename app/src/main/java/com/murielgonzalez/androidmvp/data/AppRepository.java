@@ -24,7 +24,6 @@ public class AppRepository implements AppDataStore {
     this.mAppRemoteDataStore = remoteDataStore;
   }
 
-
   // TODO: Use Observable.concat to concat local and remote repositories.
   // If there's data in local DB, use that, if not, request from remote data service
 
