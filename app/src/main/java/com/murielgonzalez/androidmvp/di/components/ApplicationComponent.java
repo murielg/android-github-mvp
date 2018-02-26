@@ -4,6 +4,7 @@ import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataStore;
 import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
 import com.murielgonzalez.androidmvp.di.modules.DataModule;
 import com.murielgonzalez.androidmvp.ui.main.MainActivity;
+import com.murielgonzalez.androidmvp.ui.main.MainActivityFragment;
 
 import javax.inject.Singleton;
 import dagger.Component;

@@ -24,7 +24,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by muriel_gonzalez on 2/24/18.
  */
 
-
 @Module
 public class DataModule {
 
@@ -36,6 +35,7 @@ public class DataModule {
 
   @Provides
   @Singleton
+  // Application reference must come from ApplicationModule.class
   SharedPreferences providesSharedPreferences(Application application) {
     return PreferenceManager.getDefaultSharedPreferences(application);
   }
@@ -66,6 +66,10 @@ public class DataModule {
 
   @Provides
   @Singleton
+  // Retrofit instance depends both on a Gson and OkHttpClient instance, so we can define
+  // another method within the same class that takes these two types.
+  // The @Provides annotation and these two parameters in the method will cause Dagger
+  // to recognize that there is a dependency on Gson and OkHttpClient to build a Retrofit instance.
   Retrofit providesRetrofit(Gson gson, OkHttpClient okHttpClient) {
     Retrofit retrofit = new Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create(gson))
