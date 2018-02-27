@@ -7,13 +7,11 @@ import android.os.Bundle;
 import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.R;
 import com.murielgonzalez.androidmvp.data.AppRepository;
-import com.murielgonzalez.androidmvp.ui.base.SingleFragmentActivity;
 
 import javax.inject.Inject;
 
-import dagger.Lazy;
 
-public class MainActivity extends SingleFragmentActivity implements MainActivityContract.View {
+public class MainActivity extends AppCompatActivity implements MainActivityContract.View {
 
   private static final String TAG =  MainActivity.class.getSimpleName();
 
@@ -29,16 +27,9 @@ public class MainActivity extends SingleFragmentActivity implements MainActivity
 
     App.getComponent().inject(this);
 
-//    setContentView(R.layout.activity_main);
-//    if (savedInstanceState == null) {
-//      MainActivityFragment fragment = (MainActivityFragment) getSupportFragmentManager()
-//              .findFragmentById(R.id.fragment_container);
-//    }
-
     new MainActivityPresenter(mRepository, this);
 
   }
-
 
   @Override
   public void setPresenter(MainActivityContract.Presenter presenter) {
@@ -50,8 +41,5 @@ public class MainActivity extends SingleFragmentActivity implements MainActivity
 
   }
 
-  @Override
-  protected Fragment createFragment() {
-    return new MainActivityFragment();
-  }
+
 }

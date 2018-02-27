@@ -21,15 +21,13 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   private static final String TAG = MainActivityPresenter.class.getSimpleName();
 
-  private final CompositeDisposable disposables = new CompositeDisposable();
+  @Nullable private MainActivityContract.View mView;
 
-  @Nullable
-  private MainActivityContract.View mView;
+  @NonNull private SchedulerProvider mSchedulerProvider;
 
-  @NonNull
-  private SchedulerProvider mSchedulerProvider;
   private AppRepository mAppRepository;
 
+  private final CompositeDisposable disposables = new CompositeDisposable();
 
   public MainActivityPresenter(AppRepository appRepository, MainActivityContract.View view) {
     Log.d(TAG, "MainActivityPresenter");
@@ -54,8 +52,8 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   @Override
   public void unsubscribe() {
-    dropView();
-//    disposables.clear();
+    this.mView = null;
+    disposables.clear();
 
   }
 

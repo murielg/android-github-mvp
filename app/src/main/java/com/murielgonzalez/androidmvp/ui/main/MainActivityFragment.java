@@ -3,13 +3,7 @@ package com.murielgonzalez.androidmvp.ui.main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.murielgonzalez.androidmvp.R;
 
 import javax.inject.Inject;
 
@@ -45,9 +39,10 @@ public class MainActivityFragment extends Fragment implements MainActivityContra
   @Override
   public void onDestroyView() {
     super.onDestroyView();
-//    mRecyclerView.setAdapter(null);
-//    ButterKnife.unbind(this);
-//    this.mFollowerListListener = null;
-    mPresenter.unsubscribe();
+    // Example methods to call in onDestroyView
+    //  mRecyclerView.setAdapter(null);
+    //  ButterKnife.unbind(this);
+    //  this.mFollowerListListener = null;
+    //mPresenter.unsubscribe();
   }
 }

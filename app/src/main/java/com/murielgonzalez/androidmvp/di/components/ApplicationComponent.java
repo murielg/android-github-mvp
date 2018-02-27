@@ -15,10 +15,7 @@ import dagger.Component;
 
 // Component is used to connect objects to their dependencies.
 @Singleton
-@Component(modules = {
-    ApplicationModule.class,
-    DataModule.class
-})
+@Component(modules = {ApplicationModule.class, DataModule.class})
 public interface ApplicationComponent {
 
     void inject(MainActivity activity);

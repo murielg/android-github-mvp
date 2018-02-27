@@ -7,7 +7,7 @@ import io.reactivex.disposables.Disposable;
  * Created by muriel_gonzalez on 2/20/18.
  */
 
-public interface BasePresenter{
+public interface BasePresenter {
 
     void subscribe();
 

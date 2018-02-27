@@ -14,11 +14,12 @@ public interface MainActivityContract {
 
     void setLoadingIndicator(boolean active);
 
+    // Example Methods
     // void showUsers(List<User> users);
 
   }
 
-// Holds methods implemented in MainActivityPresenter
+  // Holds methods implemented in MainActivityPresenter
   interface Presenter extends BasePresenter {
 
     void loadPosts();
