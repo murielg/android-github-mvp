@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
 
 
-    setContentView(R.layout.activity_main);
+    setContentView(R.layout.app_tabs_main);
 
     MainActivityFragment fragment =
             (MainActivityFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
