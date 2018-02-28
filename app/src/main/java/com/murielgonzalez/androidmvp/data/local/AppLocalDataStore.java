@@ -17,13 +17,9 @@ import io.reactivex.Observable;
 
 public class AppLocalDataStore implements AppDataStore {
 
-  @Inject
-  public AppLocalDataStore(@NonNull Context context) {
-
-  }
-
   @Override
-  public Observable<User> getUser() {
+  public Observable<User> getUser(String username) {
     return null;
   }
+
 }

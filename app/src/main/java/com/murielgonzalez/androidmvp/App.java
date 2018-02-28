@@ -5,15 +5,13 @@ package com.murielgonzalez.androidmvp;
  */
 
 import android.app.Application;
-
-import com.murielgonzalez.androidmvp.di.components.ApplicationComponent;
-import com.murielgonzalez.androidmvp.di.components.DaggerApplicationComponent;
-import com.murielgonzalez.androidmvp.di.modules.ApplicationModule;
-import com.murielgonzalez.androidmvp.di.modules.DataModule;
+import com.murielgonzalez.androidmvp.di.application.DaggerApplicationComponent;
+import com.murielgonzalez.androidmvp.di.application.ApplicationComponent;
+import com.murielgonzalez.androidmvp.di.repository.AppRepositoryModule;
 
 public class App extends Application {
 
-    private static ApplicationComponent mApplicationComponent;
+    private ApplicationComponent mApplicationComponent;
 
     @Override
     public void onCreate() {
@@ -23,13 +21,13 @@ public class App extends Application {
 
     protected void initializeAppComponent() {
         mApplicationComponent = DaggerApplicationComponent.builder()
-            .applicationModule(new ApplicationModule(this))
-            .dataModule(new DataModule(BuildConfig.BASE_URL))
+            .appRepositoryModule(new AppRepositoryModule((App) getApplicationContext()))
             .build();
     }
 
-    public static ApplicationComponent getComponent() {
+    public ApplicationComponent getComponent() {
         return mApplicationComponent;
     }
+
 
 }

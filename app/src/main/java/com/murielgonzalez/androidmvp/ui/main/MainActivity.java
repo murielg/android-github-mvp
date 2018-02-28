@@ -1,45 +1,49 @@
 package com.murielgonzalez.androidmvp.ui.main;
 
-import android.support.v4.app.Fragment;
+
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.R;
-import com.murielgonzalez.androidmvp.data.AppRepository;
 
 import javax.inject.Inject;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 
-public class MainActivity extends AppCompatActivity implements MainActivityContract.View {
+public class MainActivity extends AppCompatActivity {
 
   private static final String TAG =  MainActivity.class.getSimpleName();
 
-  private MainActivityContract.Presenter mPresenter;
-
   @Inject
-  AppRepository mRepository;
+  MainActivityPresenter mPresenter;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
 
     super.onCreate(savedInstanceState);
 
-    App.getComponent().inject(this);
 
-    new MainActivityPresenter(mRepository, this);
+    setContentView(R.layout.activity_main);
+
+    MainActivityFragment fragment =
+            (MainActivityFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+
+    if (fragment == null) {
+
+      fragment = MainActivityFragment.createNew();
+      FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+      transaction.add(R.id.fragment_container, fragment);
+      transaction.commit();
+    }
+
+    DaggerMainActivityComponent.builder()
+            .applicationComponent(((App) getApplication()).getComponent())
+            .mainActivityModule(new MainActivityModule(fragment)).build()
+            .inject(this);
 
   }
-
-  @Override
-  public void setPresenter(MainActivityContract.Presenter presenter) {
-    mPresenter = presenter;
-  }
-
-  @Override
-  public void setLoadingIndicator(boolean active) {
-
-  }
-
 
 }

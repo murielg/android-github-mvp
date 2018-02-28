@@ -9,5 +9,7 @@ import io.reactivex.Observable;
  */
 
 public interface AppDataStore {
-  Observable<User> getUser();
+
+  Observable<User> getUser(String username);
+
 }

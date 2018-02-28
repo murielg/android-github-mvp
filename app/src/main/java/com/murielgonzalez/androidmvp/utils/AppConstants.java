@@ -10,6 +10,8 @@ public final class AppConstants {
 
   public static final String PREF_NAME = "shared_prefs";
 
-  public static final String ENDPOINT_USERS = BuildConfig.BASE_URL + "/users";
+  public static final String ENDPOINT_USERS = "users";
+
+  public static final String BASE_ENDPOINT = "https://api.github.com/";
 
 }

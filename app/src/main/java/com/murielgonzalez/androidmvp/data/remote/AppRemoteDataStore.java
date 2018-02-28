@@ -1,43 +1,34 @@
 package com.murielgonzalez.androidmvp.data.remote;
 
-import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.data.AppDataStore;
-import com.murielgonzalez.androidmvp.data.local.AppLocalDataStore;
+import com.murielgonzalez.androidmvp.data.api.AppInterface;
 import com.murielgonzalez.androidmvp.data.local.models.User;
 
-
-import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Action;
-import retrofit2.Retrofit;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 /**
  * Created by muriel_gonzalez on 2/24/18.
  */
 
-public class AppRemoteDataStore  implements AppDataStore {
+@Singleton
+public class AppRemoteDataStore implements AppDataStore {
 
-  @Inject
-  Retrofit retrofit;
+  private static final String TAG = AppRemoteDataStore.class.getSimpleName();
 
-  @Inject
-  AppLocalDataStore appLocalDataStore;
+  private AppInterface mService;
 
-  public AppRemoteDataStore() {
-    App.getComponent().inject(this);
+  public AppRemoteDataStore(AppInterface appInterface) {
+    mService = appInterface;
   }
 
   @Override
-  public Observable<User> getUser() {
+  public Observable<User> getUser(String username) {
+
     // load from remote
-    return retrofit.create(UserService.class).getUser("murielg");
+    return mService.getUser(username);
+
   }
 
-  private interface UserService {
-    @GET("users/{user}")
-    Observable<User> getUser(@Path("user") String username);
-  }
 }

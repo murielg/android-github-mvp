@@ -8,6 +8,7 @@ import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.rx.SchedulerProvider;
 
 import javax.annotation.Nullable;
+import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -21,18 +22,26 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   private static final String TAG = MainActivityPresenter.class.getSimpleName();
 
-  @Nullable private MainActivityContract.View mView;
+  private final AppRepository mAppRepository;
+
+  private MainActivityContract.View mView;
+
 
   @NonNull private SchedulerProvider mSchedulerProvider;
 
-  private AppRepository mAppRepository;
 
   private final CompositeDisposable disposables = new CompositeDisposable();
 
-  public MainActivityPresenter(AppRepository appRepository, MainActivityContract.View view) {
+  @Inject
+  MainActivityPresenter(AppRepository appRepository,
+                        MainActivityContract.View view,
+                        @NonNull SchedulerProvider schedulerProvider) {
+
     Log.d(TAG, "MainActivityPresenter");
 
     this.mAppRepository = appRepository;
+
+    this.mSchedulerProvider = schedulerProvider;
 
     this.mView = view;
 

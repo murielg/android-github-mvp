@@ -31,6 +31,11 @@ public class MainActivityFragment extends Fragment implements MainActivityContra
 
   }
 
+  public static MainActivityFragment createNew() {
+    MainActivityFragment fragment = new MainActivityFragment();
+    return fragment;
+  }
+
   @Override
   public void setPresenter(MainActivityContract.Presenter presenter) {
     mPresenter= checkNotNull(presenter);
