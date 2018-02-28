@@ -25,14 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
     super.onCreate(savedInstanceState);
 
-
     setContentView(R.layout.app_tabs_main);
 
-    MainActivityFragment fragment =
-            (MainActivityFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+    MainActivityFragment fragment = (MainActivityFragment) getSupportFragmentManager()
+            .findFragmentById(R.id.fragment_container);
 
     if (fragment == null) {
-
       fragment = MainActivityFragment.createNew();
       FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
       transaction.add(R.id.fragment_container, fragment);
