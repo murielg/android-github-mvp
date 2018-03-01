@@ -17,11 +17,11 @@ import io.reactivex.Observable;
 @Singleton
 public class AppRepository implements AppDataSource {
 
-  private final AppDataSource mAppDataSource;
+  private final AppDataSource mAppRemoteDataSource;
 
   @Inject
-  AppRepository(@Remote AppDataSource remoteDataStore) {
-    mAppDataSource = remoteDataStore;
+  AppRepository(@Remote AppDataSource appDataSource) {
+    mAppRemoteDataSource = appDataSource;
   }
 
   // TODO: Use Observable.concat to concat local and remote repositories.
@@ -29,6 +29,6 @@ public class AppRepository implements AppDataSource {
 
   @Override
   public Observable<User> getUser(@NonNull final String username) {
-    return mAppDataSource.getUser(username);
+    return mAppRemoteDataSource.getUser(username);
   }
 }

@@ -8,8 +8,11 @@ import android.preference.PreferenceManager;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.murielgonzalez.androidmvp.data.AppDataSource;
 import com.murielgonzalez.androidmvp.data.api.AppInterface;
 import com.murielgonzalez.androidmvp.data.api.AppService;
+import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataSource;
+import com.murielgonzalez.androidmvp.di.scopes.Remote;
 import com.murielgonzalez.androidmvp.rx.SchedulerProvider;
 import com.murielgonzalez.androidmvp.utils.AppConstants;
 
@@ -29,15 +32,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class AppRepositoryModule {
 
-  private final Context mContext;
+  //private final Context mContext;
 
-  public AppRepositoryModule(Context context) {
-    mContext = context;
-  }
+  //public AppRepositoryModule(Context context) {
+  //  mContext = context;
+  //}
 
+//  @Provides
+//  Context provideContext() {
+//    return mContext;
+//  }
+
+  @Singleton
   @Provides
-  Context provideContext() {
-    return mContext;
+  @Remote
+  AppDataSource provideAppRemoteDataSource(AppInterface appInterface) {
+    return new AppRemoteDataSource(appInterface);
   }
 
   @Provides

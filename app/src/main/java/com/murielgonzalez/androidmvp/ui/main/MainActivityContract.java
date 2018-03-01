@@ -20,9 +20,7 @@ public interface MainActivityContract {
   }
 
   // Holds methods implemented in MainActivityPresenter
-  interface Presenter extends BasePresenter {
-
-    void loadPosts();
+  interface Presenter extends BasePresenter<View> {
 
     void dropView();
 

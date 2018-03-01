@@ -2,18 +2,21 @@ package com.murielgonzalez.androidmvp.ui.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
+
+import com.murielgonzalez.androidmvp.di.scopes.ActivityScoped;
 
 import javax.inject.Inject;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import dagger.android.support.DaggerFragment;
+
 
 /**
  * Created by muriel_gonzalez on 2/20/18.
  */
 
-public class MainActivityFragment extends Fragment implements MainActivityContract.View  {
+@ActivityScoped
+public class MainActivityFragment extends DaggerFragment implements MainActivityContract.View  {
 
   @Inject
   MainActivityContract.Presenter mPresenter;
@@ -31,14 +34,15 @@ public class MainActivityFragment extends Fragment implements MainActivityContra
 
   }
 
-  public static MainActivityFragment createNew() {
-    MainActivityFragment fragment = new MainActivityFragment();
-    return fragment;
+  @Inject
+  public MainActivityFragment() {
+    // Requires empty public constructor
   }
 
   @Override
-  public void setPresenter(MainActivityContract.Presenter presenter) {
-    mPresenter= checkNotNull(presenter);
+  public void onResume() {
+    super.onResume();
+    mPresenter.takeView(this);
   }
 
   @Override
@@ -48,6 +52,7 @@ public class MainActivityFragment extends Fragment implements MainActivityContra
     //  mRecyclerView.setAdapter(null);
     //  ButterKnife.unbind(this);
     //  this.mFollowerListListener = null;
-    //mPresenter.unsubscribe();
+    mPresenter.dropView();
+
   }
 }

@@ -1,23 +1,24 @@
 package com.murielgonzalez.androidmvp.ui.main;
 
 
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.R;
+import com.murielgonzalez.androidmvp.utils.ActivityUtils;
 
 import javax.inject.Inject;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import dagger.Lazy;
+import dagger.android.support.DaggerAppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends DaggerAppCompatActivity {
 
   private static final String TAG =  MainActivity.class.getSimpleName();
 
   @Inject
   MainActivityPresenter mPresenter;
+
+  @Inject
+  Lazy<MainActivityFragment> mMainActivityFragmentProvider;
 
 
   @Override
@@ -31,16 +32,13 @@ public class MainActivity extends AppCompatActivity {
             .findFragmentById(R.id.fragment_container);
 
     if (fragment == null) {
-      fragment = MainActivityFragment.createNew();
-      FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-      transaction.add(R.id.fragment_container, fragment);
-      transaction.commit();
+      fragment = mMainActivityFragmentProvider.get();
+      ActivityUtils.addFragmentToActivity(
+          getSupportFragmentManager(), fragment, R.id.fragment_container
+      );
+
     }
 
-    DaggerMainActivityComponent.builder()
-            .applicationComponent(((App) getApplication()).getComponent())
-            .mainActivityModule(new MainActivityModule(fragment)).build()
-            .inject(this);
 
   }
 

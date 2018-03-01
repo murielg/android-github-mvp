@@ -17,7 +17,7 @@ import dagger.Component;
 @Component(modules = AppRepositoryModule.class)
 public interface AppRepositoryComponent {
 
-    Context context();
+//    Context context();
 
     AppService appService();
 

@@ -4,29 +4,23 @@ package com.murielgonzalez.androidmvp;
  * Created by muriel_gonzalez on 2/20/18.
  */
 
-import android.app.Application;
+import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.di.application.DaggerApplicationComponent;
-import com.murielgonzalez.androidmvp.di.application.ApplicationComponent;
-import com.murielgonzalez.androidmvp.di.repository.AppRepositoryModule;
 
-public class App extends Application {
+import javax.inject.Inject;
 
-    private ApplicationComponent mApplicationComponent;
+import dagger.android.AndroidInjector;
+import dagger.android.DaggerApplication;
+
+public class App extends DaggerApplication {
+
+
+    @Inject
+    AppRepository mAppRepository;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        this.initializeAppComponent();
-    }
-
-    protected void initializeAppComponent() {
-        mApplicationComponent = DaggerApplicationComponent.builder()
-            .appRepositoryModule(new AppRepositoryModule(getApplicationContext()))
-            .build();
-    }
-
-    public ApplicationComponent getComponent() {
-        return mApplicationComponent;
+    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
+        return DaggerApplicationComponent.builder().application(this).build();
     }
 
 
