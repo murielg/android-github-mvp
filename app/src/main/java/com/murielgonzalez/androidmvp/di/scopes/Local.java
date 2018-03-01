@@ -4,13 +4,15 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import javax.inject.Scope;
+import javax.inject.Qualifier;
 
 /**
  * Created by muriel_gonzalez on 2/26/18.
  */
 
-@Scope
+@Qualifier
+@Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ApplicationScope {
+public @interface Local {
+
 }

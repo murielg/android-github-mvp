@@ -27,6 +27,7 @@ public class MainActivityFragment extends DaggerFragment implements MainActivity
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate Fragment");
+    mPresenter.loadUser("murielg", true);
   }
 
   @Override

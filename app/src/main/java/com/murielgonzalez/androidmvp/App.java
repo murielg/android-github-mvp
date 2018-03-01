@@ -14,7 +14,6 @@ import dagger.android.DaggerApplication;
 
 public class App extends DaggerApplication {
 
-
     @Inject
     AppRepository mAppRepository;
 
@@ -22,6 +21,5 @@ public class App extends DaggerApplication {
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
         return DaggerApplicationComponent.builder().application(this).build();
     }
-
 
 }

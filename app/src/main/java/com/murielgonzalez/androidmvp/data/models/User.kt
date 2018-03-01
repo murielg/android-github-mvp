@@ -1,4 +1,4 @@
-package com.murielgonzalez.androidmvp.data.local.models
+package com.murielgonzalez.androidmvp.data.models
 
 import com.google.gson.annotations.SerializedName
 

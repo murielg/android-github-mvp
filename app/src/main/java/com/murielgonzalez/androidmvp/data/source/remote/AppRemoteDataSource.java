@@ -1,8 +1,8 @@
-package com.murielgonzalez.androidmvp.data.remote;
+package com.murielgonzalez.androidmvp.data.source.remote;
 
 import com.murielgonzalez.androidmvp.data.AppDataSource;
 import com.murielgonzalez.androidmvp.data.api.AppInterface;
-import com.murielgonzalez.androidmvp.data.local.models.User;
+import com.murielgonzalez.androidmvp.data.models.User;
 
 import javax.inject.Singleton;
 

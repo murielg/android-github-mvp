@@ -1,4 +1,4 @@
-package com.murielgonzalez.androidmvp.data.prefs;
+package com.murielgonzalez.androidmvp.data.source.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;

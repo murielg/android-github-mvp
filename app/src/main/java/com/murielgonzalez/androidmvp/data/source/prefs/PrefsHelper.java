@@ -1,4 +1,4 @@
-package com.murielgonzalez.androidmvp.data.prefs;
+package com.murielgonzalez.androidmvp.data.source.prefs;
 
 /**
  * Created by muriel_gonzalez on 2/21/18.

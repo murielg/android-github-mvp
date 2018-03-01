@@ -2,7 +2,7 @@ package com.murielgonzalez.androidmvp.data;
 
 import android.support.annotation.NonNull;
 
-import com.murielgonzalez.androidmvp.data.local.models.User;
+import com.murielgonzalez.androidmvp.data.models.User;
 import com.murielgonzalez.androidmvp.di.scopes.Remote;
 
 import javax.inject.Inject;

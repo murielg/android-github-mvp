@@ -1,7 +1,7 @@
-package com.murielgonzalez.androidmvp.data.local;
+package com.murielgonzalez.androidmvp.data.source.local;
 
 import com.murielgonzalez.androidmvp.data.AppDataSource;
-import com.murielgonzalez.androidmvp.data.local.models.User;
+import com.murielgonzalez.androidmvp.data.models.User;
 
 import io.reactivex.Observable;
 

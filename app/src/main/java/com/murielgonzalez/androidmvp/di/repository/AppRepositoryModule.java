@@ -1,7 +1,6 @@
 package com.murielgonzalez.androidmvp.di.repository;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -11,7 +10,7 @@ import com.google.gson.GsonBuilder;
 import com.murielgonzalez.androidmvp.data.AppDataSource;
 import com.murielgonzalez.androidmvp.data.api.AppInterface;
 import com.murielgonzalez.androidmvp.data.api.AppService;
-import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataSource;
+import com.murielgonzalez.androidmvp.data.source.remote.AppRemoteDataSource;
 import com.murielgonzalez.androidmvp.di.scopes.Remote;
 import com.murielgonzalez.androidmvp.rx.SchedulerProvider;
 import com.murielgonzalez.androidmvp.utils.AppConstants;

@@ -22,6 +22,8 @@ public interface MainActivityContract {
   // Holds methods implemented in MainActivityPresenter
   interface Presenter extends BasePresenter<View> {
 
+    void loadUser(String username, boolean forceUpdate);
+
     void dropView();
 
   }
