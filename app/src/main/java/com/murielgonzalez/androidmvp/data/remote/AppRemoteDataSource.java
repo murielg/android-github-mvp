@@ -1,6 +1,6 @@
 package com.murielgonzalez.androidmvp.data.remote;
 
-import com.murielgonzalez.androidmvp.data.AppDataStore;
+import com.murielgonzalez.androidmvp.data.AppDataSource;
 import com.murielgonzalez.androidmvp.data.api.AppInterface;
 import com.murielgonzalez.androidmvp.data.local.models.User;
 
@@ -13,13 +13,13 @@ import io.reactivex.Observable;
  */
 
 @Singleton
-public class AppRemoteDataStore implements AppDataStore {
+public class AppRemoteDataSource implements AppDataSource {
 
-  private static final String TAG = AppRemoteDataStore.class.getSimpleName();
+  private static final String TAG = AppRemoteDataSource.class.getSimpleName();
 
   private AppInterface mService;
 
-  public AppRemoteDataStore(AppInterface appInterface) {
+  public AppRemoteDataSource(AppInterface appInterface) {
     mService = appInterface;
   }
 

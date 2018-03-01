@@ -3,7 +3,6 @@ package com.murielgonzalez.androidmvp.data;
 import android.support.annotation.NonNull;
 
 import com.murielgonzalez.androidmvp.data.local.models.User;
-import com.murielgonzalez.androidmvp.data.remote.AppRemoteDataStore;
 import com.murielgonzalez.androidmvp.di.scopes.Remote;
 
 import javax.inject.Inject;
@@ -16,13 +15,13 @@ import io.reactivex.Observable;
  */
 
 @Singleton
-public class AppRepository implements AppDataStore {
+public class AppRepository implements AppDataSource {
 
-  private final AppDataStore mAppDataStore;
+  private final AppDataSource mAppDataSource;
 
   @Inject
-  AppRepository(@Remote AppDataStore remoteDataStore) {
-    mAppDataStore = remoteDataStore;
+  AppRepository(@Remote AppDataSource remoteDataStore) {
+    mAppDataSource = remoteDataStore;
   }
 
   // TODO: Use Observable.concat to concat local and remote repositories.
@@ -30,6 +29,6 @@ public class AppRepository implements AppDataStore {
 
   @Override
   public Observable<User> getUser(@NonNull final String username) {
-    return mAppDataStore.getUser(username);
+    return mAppDataSource.getUser(username);
   }
 }
