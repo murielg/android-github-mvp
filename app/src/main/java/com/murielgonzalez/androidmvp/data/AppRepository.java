@@ -22,8 +22,8 @@ public class AppRepository implements AppDataSource {
 
   private final AppDataSource mAppRemoteDataSource;
 
-  @Inject
-  AppRepository(@Remote AppDataSource appDataSource) {
+
+  public AppRepository(@Remote AppDataSource appDataSource) {
     mAppRemoteDataSource = appDataSource;
   }
 

@@ -5,7 +5,7 @@ package com.murielgonzalez.androidmvp;
  */
 
 import com.murielgonzalez.androidmvp.data.AppRepository;
-import com.murielgonzalez.androidmvp.di.application.DaggerApplicationComponent;
+import com.murielgonzalez.androidmvp.di.DaggerApplicationComponent;
 
 import javax.inject.Inject;
 

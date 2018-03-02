@@ -1,9 +1,7 @@
-package com.murielgonzalez.androidmvp.di.application;
+package com.murielgonzalez.androidmvp.di;
 
 import android.app.Application;
 import android.content.Context;
-
-import com.murielgonzalez.androidmvp.data.source.remote.AppRemoteDataSource;
 
 import dagger.Binds;
 import dagger.Module;

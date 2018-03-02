@@ -1,11 +1,11 @@
 package com.murielgonzalez.androidmvp.data.source.remote;
 
-import android.util.Log;
+import android.support.annotation.NonNull;
 
 import com.murielgonzalez.androidmvp.data.AppDataSource;
-import com.murielgonzalez.androidmvp.data.api.AppInterface;
 import com.murielgonzalez.androidmvp.data.models.User;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
@@ -19,16 +19,17 @@ public class AppRemoteDataSource implements AppDataSource {
 
   private static final String TAG = AppRemoteDataSource.class.getSimpleName();
 
-  private AppInterface mService;
+  @NonNull
+  private final Services mServices;
 
-  public AppRemoteDataSource(AppInterface appInterface) {
-    mService = appInterface;
+  @Inject
+  AppRemoteDataSource(@NonNull Services services) {
+    this.mServices = services;
   }
 
   @Override
   public Observable<User> getUser(String username) {
-    return mService.getUser(username);
-
+    return mServices.getUser(username);
   }
 
 }

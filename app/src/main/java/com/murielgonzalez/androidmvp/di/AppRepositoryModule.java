@@ -1,28 +1,15 @@
-package com.murielgonzalez.androidmvp.di.repository;
+package com.murielgonzalez.androidmvp.di;
 
-import android.app.Application;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.murielgonzalez.androidmvp.data.AppDataSource;
-import com.murielgonzalez.androidmvp.data.api.AppInterface;
-import com.murielgonzalez.androidmvp.data.api.AppService;
+import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.data.source.remote.AppRemoteDataSource;
 import com.murielgonzalez.androidmvp.di.scopes.Remote;
-import com.murielgonzalez.androidmvp.rx.SchedulerProvider;
-import com.murielgonzalez.androidmvp.utils.AppConstants;
 
 import javax.inject.Singleton;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by muriel_gonzalez on 2/24/18.
@@ -31,7 +18,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class AppRepositoryModule {
 
-  //private final Context mContext;
+  @Singleton
+  @Provides
+  AppRepository provideAppRepository(@Remote AppDataSource remoteDataSource) {
+    return new AppRepository(remoteDataSource);
+  }
+
+  /*
+  @Singleton
+  @Binds
+  @Remote
+  abstract AppDataSource provideAppRemoteDataSource(AppRemoteDataSource remoteDataSource);
+
+  */
+
+
+
+
+
+  /*
+
+    //private final Context mContext;
 
   //public AppRepositoryModule(Context context) {
   //  mContext = context;
@@ -42,16 +49,9 @@ public class AppRepositoryModule {
 //    return mContext;
 //  }
 
-  @Singleton
   @Provides
-  @Remote
-  AppDataSource provideAppRemoteDataSource(AppInterface appInterface) {
-    return new AppRemoteDataSource(appInterface);
-  }
-
-  @Provides
-  AppService provideAppService(AppInterface appInterface) {
-    return new AppService(appInterface);
+  AppService provideAppService(AppInterface appService) {
+    return new AppService(appService);
   }
 
   @Provides
@@ -105,5 +105,5 @@ public class AppRepositoryModule {
 //    return cache;
 //  }
 
-
+*/
 }

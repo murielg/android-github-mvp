@@ -1,12 +1,11 @@
-package com.murielgonzalez.androidmvp.di.application;
+package com.murielgonzalez.androidmvp.di;
 
 import android.app.Application;
 
 import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.data.AppRepository;
-import com.murielgonzalez.androidmvp.di.ActivityBindingModule;
-import com.murielgonzalez.androidmvp.di.repository.AppRepositoryComponent;
-import com.murielgonzalez.androidmvp.di.repository.AppRepositoryModule;
+import com.murielgonzalez.androidmvp.data.source.remote.AppRemoteDataSource;
+import com.murielgonzalez.androidmvp.data.source.remote.AppRemoteDataSourceModule;
 
 import javax.inject.Singleton;
 
@@ -34,6 +33,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Singleton
 @Component(modules = {
     AppRepositoryModule.class,
+        AppRemoteDataSourceModule.class,
     ApplicationModule.class,
     ActivityBindingModule.class,
     AndroidSupportInjectionModule.class

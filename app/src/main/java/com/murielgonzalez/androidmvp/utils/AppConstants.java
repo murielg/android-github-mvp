@@ -14,4 +14,7 @@ public final class AppConstants {
 
   public static final String BASE_ENDPOINT = "https://api.github.com/";
 
+  public static final String API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+
+
 }
