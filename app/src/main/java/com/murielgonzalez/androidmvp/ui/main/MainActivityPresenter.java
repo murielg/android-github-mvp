@@ -89,6 +89,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
   @Override
   public void dropView() {
     mView = null;
-    disposables.clear();
+    if (!disposables.isDisposed()) {
+      disposables.clear();
+    }
+
   }
 }
