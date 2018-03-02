@@ -52,7 +52,6 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   private void loadUser(String username, boolean forceUpdate, boolean showLoadingIndicator) {
     disposables.clear();
-
     final Observable<User> observable = mAppRepository
             .getUser(username)
             .subscribeOn(mSchedulerProvider.io())

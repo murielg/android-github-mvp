@@ -35,6 +35,11 @@ public class MainActivityFragment extends DaggerFragment implements MainActivity
 
   }
 
+  @Override
+  public void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+  }
+
   @Inject
   public MainActivityFragment() {
     // Requires empty public constructor
@@ -42,8 +47,8 @@ public class MainActivityFragment extends DaggerFragment implements MainActivity
 
   @Override
   public void onResume() {
-    super.onResume();
     mPresenter.takeView(this);
+    super.onResume();
   }
 
   @Override
@@ -56,4 +61,5 @@ public class MainActivityFragment extends DaggerFragment implements MainActivity
     mPresenter.dropView();
 
   }
+
 }
