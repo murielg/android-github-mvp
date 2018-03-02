@@ -16,9 +16,7 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by muriel_gonzalez on 2/20/18.
@@ -68,7 +66,7 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
     @Override
     public void onNext(User user) {
-      Log.d(TAG, "onNext");
+      Log.d(TAG, "onNext" + user.toString());
     }
 
     @Override
@@ -84,13 +82,13 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   @Override
   public void takeView(MainActivityContract.View view) {
-    //takeView is similar to subscribe
     this.mView = view;
-    disposables.clear();
+
   }
 
   @Override
   public void dropView() {
     mView = null;
+    disposables.clear();
   }
 }
