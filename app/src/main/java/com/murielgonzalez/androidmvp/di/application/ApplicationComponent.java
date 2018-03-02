@@ -5,6 +5,7 @@ import android.app.Application;
 import com.murielgonzalez.androidmvp.App;
 import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.di.ActivityBindingModule;
+import com.murielgonzalez.androidmvp.di.repository.AppRepositoryComponent;
 import com.murielgonzalez.androidmvp.di.repository.AppRepositoryModule;
 
 import javax.inject.Singleton;
@@ -47,6 +48,7 @@ public interface ApplicationComponent extends AndroidInjector<App> {
         ApplicationComponent.Builder application(Application application);
 
         ApplicationComponent build();
+
     }
 
 

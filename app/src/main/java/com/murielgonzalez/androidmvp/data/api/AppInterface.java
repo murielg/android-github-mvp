@@ -12,8 +12,7 @@ import retrofit2.http.Path;
 
 public interface AppInterface {
 
-    @GET("users/{user}")
-    Observable<User> getUser(@Path("user") String username);
-
+    @GET("users/{uname}")
+    Observable<User> getUser(@Path("uname") String uname);
 
 }

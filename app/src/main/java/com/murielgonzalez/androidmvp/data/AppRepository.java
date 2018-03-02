@@ -1,6 +1,7 @@
 package com.murielgonzalez.androidmvp.data;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.murielgonzalez.androidmvp.data.models.User;
 import com.murielgonzalez.androidmvp.di.scopes.Remote;
@@ -17,6 +18,8 @@ import io.reactivex.Observable;
 @Singleton
 public class AppRepository implements AppDataSource {
 
+  private static final String TAG = AppRepository.class.getSimpleName();
+
   private final AppDataSource mAppRemoteDataSource;
 
   @Inject
@@ -28,7 +31,7 @@ public class AppRepository implements AppDataSource {
   // If there's data in local DB, use that, if not, request from remote data service
 
   @Override
-  public Observable<User> getUser(@NonNull final String username) {
+  public Observable<User> getUser(@NonNull String username) {
     return mAppRemoteDataSource.getUser(username);
   }
 }

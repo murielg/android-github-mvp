@@ -13,6 +13,7 @@ import dagger.Component;
 /**
  * Created by muriel_gonzalez on 2/27/18.
  */
+
 @Singleton
 @Component(modules = AppRepositoryModule.class)
 public interface AppRepositoryComponent {

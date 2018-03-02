@@ -1,5 +1,7 @@
 package com.murielgonzalez.androidmvp.data.source.remote;
 
+import android.util.Log;
+
 import com.murielgonzalez.androidmvp.data.AppDataSource;
 import com.murielgonzalez.androidmvp.data.api.AppInterface;
 import com.murielgonzalez.androidmvp.data.models.User;
@@ -25,8 +27,6 @@ public class AppRemoteDataSource implements AppDataSource {
 
   @Override
   public Observable<User> getUser(String username) {
-
-    // load from remote
     return mService.getUser(username);
 
   }

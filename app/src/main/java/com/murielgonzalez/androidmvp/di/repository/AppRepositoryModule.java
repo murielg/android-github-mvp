@@ -54,13 +54,6 @@ public class AppRepositoryModule {
     return new AppService(appInterface);
   }
 
-//  @Provides
-//  Cache providesHttpCache(Application application) {
-//    int cacheSize = 10 * 1024 * 1024;
-//    Cache cache = new Cache(application.getCacheDir(), cacheSize);
-//    return cache;
-//  }
-
   @Provides
   Gson provideGson() {
     GsonBuilder gsonBuilder = new GsonBuilder();
@@ -103,5 +96,14 @@ public class AppRepositoryModule {
   SharedPreferences providesSharedPreferences(Application application) {
     return PreferenceManager.getDefaultSharedPreferences(application);
   }
+
+
+//  @Provides
+//  Cache providesHttpCache(Application application) {
+//    int cacheSize = 10 * 1024 * 1024;
+//    Cache cache = new Cache(application.getCacheDir(), cacheSize);
+//    return cache;
+//  }
+
 
 }

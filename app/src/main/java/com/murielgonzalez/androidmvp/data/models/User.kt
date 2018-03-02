@@ -16,10 +16,6 @@ data class User(
 		@SerializedName("blog") val blog: String,
 		@SerializedName("location") val location: String,
 		@SerializedName("email") val email: String,
-		@SerializedName("hireable") val hireable: Boolean,
-		@SerializedName("bio") val bio: String,
-		@SerializedName("public_repos") val publicRepos: Int,
-		@SerializedName("public_gists") val publicGists: Int,
 		@SerializedName("followers") val followers: Int,
 		@SerializedName("following") val following: Int
 )

@@ -5,10 +5,13 @@ package com.murielgonzalez.androidmvp.data.api;
  */
 
 public class AppService {
+
     private AppInterface mInterface;
 
+    public AppService() {}
+
     public AppService(AppInterface anInterface) {
-        mInterface = anInterface;
+        this.mInterface = anInterface;
     }
 
     public AppInterface getInterface() {

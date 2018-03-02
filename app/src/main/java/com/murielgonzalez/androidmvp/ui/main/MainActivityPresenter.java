@@ -7,6 +7,7 @@ import android.util.Log;
 import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.data.models.User;
 import com.murielgonzalez.androidmvp.di.scopes.ActivityScoped;
+import com.murielgonzalez.androidmvp.rx.DefaultObserver;
 import com.murielgonzalez.androidmvp.rx.SchedulerProvider;
 
 import javax.annotation.Nullable;
@@ -15,6 +16,7 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -39,15 +41,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
   private SchedulerProvider mSchedulerProvider;
 
   @Inject
-  MainActivityPresenter(AppRepository appRepository,
-                        @NonNull SchedulerProvider schedulerProvider) {
-
-    Log.d(TAG, "MainActivityPresenter");
-
+  MainActivityPresenter(AppRepository appRepository, @NonNull SchedulerProvider schedulerProvider) {
     this.mAppRepository = appRepository;
-
     this.mSchedulerProvider = schedulerProvider;
-
   }
 
   @Override
@@ -59,7 +55,8 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
   private void loadUser(String username, boolean forceUpdate, boolean showLoadingIndicator) {
     disposables.clear();
 
-    final Observable<User> observable = mAppRepository.getUser(username)
+    final Observable<User> observable = mAppRepository
+            .getUser(username)
             .subscribeOn(mSchedulerProvider.io())
             .observeOn(AndroidSchedulers.mainThread());
 
@@ -67,30 +64,23 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   }
 
-  private final class UserObserver extends com.murielgonzalez.androidmvp.rx.DefaultObserver<User> {
+  private final class UserObserver extends DefaultObserver<User> {
+
     @Override
     public void onNext(User user) {
-      Log.d(TAG, user.toString());
+      Log.d(TAG, "onNext");
     }
 
     @Override
     public void onError(Throwable e) {
-
+      Log.d(TAG, "onError");
     }
 
     @Override
     public void onComplete() {
-
+      Log.d(TAG, "onComplete");
     }
   }
-
-  //  @Override
-//  public void unsubscribe() {
-//    this.mView = null;
-//    disposables.clear();
-//
-//  }
-
 
   @Override
   public void takeView(MainActivityContract.View view) {

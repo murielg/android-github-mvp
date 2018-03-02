@@ -1,5 +1,7 @@
 package com.murielgonzalez.androidmvp.data;
 
+import android.support.annotation.NonNull;
+
 import com.murielgonzalez.androidmvp.data.models.User;
 
 import io.reactivex.Observable;
