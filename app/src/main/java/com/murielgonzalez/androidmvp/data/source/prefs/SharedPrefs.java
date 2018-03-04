@@ -11,14 +11,14 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class SharedPrefsHelper implements PrefsHelper {
+public class SharedPrefs implements PrefsHelper {
 
     private static final String PREF_KEY_CURRENT_USER_NAME = "PREF_KEY_CURRENT_USER_NAME";
 
     private final SharedPreferences mPrefs;
 
     @Inject
-    public SharedPrefsHelper(Context context, String prefFileName) {
+    public SharedPrefs(Context context, String prefFileName) {
         mPrefs = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE);
     }
 

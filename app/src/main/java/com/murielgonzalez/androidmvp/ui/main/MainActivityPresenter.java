@@ -8,6 +8,7 @@ import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.data.models.User;
 import com.murielgonzalez.androidmvp.di.scopes.ActivityScoped;
 import com.murielgonzalez.androidmvp.rx.DefaultObserver;
+import com.murielgonzalez.androidmvp.rx.RxJavaLoader;
 import com.murielgonzalez.androidmvp.rx.SchedulerProvider;
 
 import javax.annotation.Nullable;
@@ -16,6 +17,8 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observables.ConnectableObservable;
+import io.reactivex.observers.DisposableObserver;
 
 
 /**
@@ -33,7 +36,9 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
   private boolean mFirstLoad = true;
 
+  // Data
   private final CompositeDisposable disposables = new CompositeDisposable();
+  private static int LOADER_USER_ID = 100;
 
   @NonNull
   private SchedulerProvider mSchedulerProvider;
@@ -82,7 +87,6 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
   @Override
   public void takeView(MainActivityContract.View view) {
     this.mView = view;
-
   }
 
   @Override

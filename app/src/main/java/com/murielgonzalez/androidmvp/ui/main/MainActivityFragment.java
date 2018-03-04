@@ -3,13 +3,14 @@ package com.murielgonzalez.androidmvp.ui.main;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.murielgonzalez.androidmvp.R;
 import com.murielgonzalez.androidmvp.di.scopes.ActivityScoped;
-
 import javax.inject.Inject;
-
 import dagger.android.support.DaggerFragment;
-
 
 /**
  * Created by muriel_gonzalez on 2/20/18.
@@ -26,18 +27,25 @@ public class MainActivityFragment extends DaggerFragment implements MainActivity
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    // retain this fragment
+    setRetainInstance(true);
     Log.d(TAG, "onCreate Fragment");
     mPresenter.loadUser("murielg", true);
+  }
+
+  @Nullable
+  @Override
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+    View root = inflater.inflate(R.layout.mainactivity_frag, container, false);
+
+    return root;
   }
 
   @Override
   public void setLoadingIndicator(boolean active) {
 
-  }
-
-  @Override
-  public void onSaveInstanceState(Bundle outState) {
-    super.onSaveInstanceState(outState);
   }
 
   @Inject
@@ -47,18 +55,22 @@ public class MainActivityFragment extends DaggerFragment implements MainActivity
 
   @Override
   public void onResume() {
-    mPresenter.takeView(this);
     super.onResume();
+    mPresenter.takeView(this);
   }
 
   @Override
-  public void onDestroyView() {
-    super.onDestroyView();
-    // Example methods to call in onDestroyView
-    //  mRecyclerView.setAdapter(null);
-    //  ButterKnife.unbind(this);
-    //  this.mFollowerListListener = null;
-    mPresenter.dropView();
+  public void onDestroy() {
+    super.onDestroy();
+    mPresenter.dropView();  //prevent leaking activity in
+    // case presenter is orchestrating a long running task
+
+    /*
+      Example methods to call in onDestroy:
+      mRecyclerView.setAdapter(null);
+      ButterKnife.unbind(this);
+      this.mFollowerListListener = null;
+    */
 
   }
 

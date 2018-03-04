@@ -33,7 +33,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Singleton
 @Component(modules = {
     AppRepositoryModule.class,
-        AppRemoteDataSourceModule.class,
+    AppRemoteDataSourceModule.class,
     ApplicationModule.class,
     ActivityBindingModule.class,
     AndroidSupportInjectionModule.class

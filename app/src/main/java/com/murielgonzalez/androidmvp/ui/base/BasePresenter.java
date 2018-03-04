@@ -9,10 +9,6 @@ import io.reactivex.disposables.Disposable;
 
 public interface BasePresenter<T> {
 
-//    void subscribe();
-//
-//    void unsubscribe();
-
     void takeView(T view);
 
     void dropView();
