@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.data.models.User;
+import com.murielgonzalez.androidmvp.data.source.prefs.SharedPrefs;
 import com.murielgonzalez.androidmvp.di.scopes.ActivityScoped;
 import com.murielgonzalez.androidmvp.rx.DefaultObserver;
 import com.murielgonzalez.androidmvp.rx.RxJavaLoader;

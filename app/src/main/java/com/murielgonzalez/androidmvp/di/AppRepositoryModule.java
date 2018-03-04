@@ -1,7 +1,10 @@
 package com.murielgonzalez.androidmvp.di;
 
+import android.content.Context;
+
 import com.murielgonzalez.androidmvp.data.AppDataSource;
 import com.murielgonzalez.androidmvp.data.AppRepository;
+import com.murielgonzalez.androidmvp.data.source.prefs.SharedPrefs;
 import com.murielgonzalez.androidmvp.di.scopes.Remote;
 import javax.inject.Singleton;
 import dagger.Module;
@@ -20,6 +23,12 @@ public class AppRepositoryModule {
     return new AppRepository(remoteDataSource);
   }
 
+//  @Singleton
+//  @Provides
+//  SharedPrefs provideSharedPreferences(Context context, String prefFileName) {
+//    return new SharedPrefs(context, prefFileName);
+//  }
+
   /*
   @Singleton
   @Provides
@@ -28,5 +37,6 @@ public class AppRepositoryModule {
     return new AppRepository(remoteDataSource, localDataSource);
   }
    */
+
 
 }
