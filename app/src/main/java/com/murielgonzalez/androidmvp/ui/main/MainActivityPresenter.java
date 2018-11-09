@@ -6,7 +6,6 @@ import android.util.Log;
 
 import com.murielgonzalez.androidmvp.data.AppRepository;
 import com.murielgonzalez.androidmvp.data.models.User;
-import com.murielgonzalez.androidmvp.data.source.prefs.SharedPrefs;
 import com.murielgonzalez.androidmvp.di.scopes.ActivityScoped;
 import com.murielgonzalez.androidmvp.rx.DefaultObserver;
 import com.murielgonzalez.androidmvp.rx.RxJavaLoader;
@@ -18,8 +17,6 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observables.ConnectableObservable;
-import io.reactivex.observers.DisposableObserver;
 
 
 /**
